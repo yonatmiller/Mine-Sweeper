@@ -1,0 +1,21 @@
+body {
+    background-color: rgba(80, 69, 69, 0.038);
+	text-align: center;
+	color: lightgray;
+    
+}
+
+table {
+	margin: 50px auto;
+	border: 3px solid lightgray;
+} 
+
+.cell {
+	width: 40px;
+	height: 40px;
+	font-size: 1.5em;
+}
+/* 
+.hide{
+    visibility: hidden;
+} */
