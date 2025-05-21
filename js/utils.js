@@ -22,12 +22,6 @@ function renderBoard(mat, selector) {
     
     const elContainer = document.querySelector(selector)
     elContainer.innerHTML = strHTML
-    
-    for (var i = 0; i < mat.length; i++) {
-        for (var j = 0; j < mat[0].length; j++) {
-            document.querySelector('.board-container').classList.add('hidden')
-        }
-    }
 }
 
 function getRandomIntInclusive(min, max) {
@@ -37,8 +31,8 @@ function getRandomIntInclusive(min, max) {
 function findEmptyCell(){
     var emptyCell = []
 
-    for (var i = 0; i < SIZE; i++){
-        for (var j = 0; j < SIZE; j++){
+    for (var i = 0; i < gLevel.SIZE; i++){
+        for (var j = 0; j < gLevel.SIZE; j++){
 
             if(!gBoard[i][j].isMarked && !gBoard[i][j].isMine){
                 var cell = {
@@ -51,7 +45,8 @@ function findEmptyCell(){
 
     }
 
-    return emptyCell
+    var ranIdx = getRandomIntInclusive(0, emptyCell.length)
+    return emptyCell[ranIdx]
 }
 
 function renderCell(location, value) {
