@@ -1,5 +1,6 @@
 'use strict'
 
+//building board - DOM
 function renderBoard(mat, selector) {
 
     var strHTML = '<table><tbody>'
@@ -12,7 +13,7 @@ function renderBoard(mat, selector) {
             const className = `cell cell-${i}-${j}`
           
            strHTML += `<td class="${className}" onclick="onCellClicked(this, ${i}, ${j})" oncontextmenu="onCellMarked(this, ${i}, ${j})">${cell}</td>`
-            
+           
         }   
         
         strHTML += '</tr>'
@@ -22,12 +23,17 @@ function renderBoard(mat, selector) {
     
     const elContainer = document.querySelector(selector)
     elContainer.innerHTML = strHTML
+
+    console.log(elContainer);
+    
 }
 
+//Random number
 function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+//Finds an empty cell
 function findEmptyCell(){
     var emptyCell = []
 
@@ -49,11 +55,16 @@ function findEmptyCell(){
     return emptyCell[ranIdx]
 }
 
+//render Cell - DOM
 function renderCell(location, value) {
     
-    
-    const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)   
+    const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
     elCell.innerHTML = value
-   
-    
+
+    if(value === MINE){
+        elCell.classList.add('stylemine')
+    }else{
+        elCell.classList.add('stylecell')
+    }
 }
+
