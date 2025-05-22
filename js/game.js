@@ -6,8 +6,8 @@ const EMPTY = ''
 var gFirstClick = true
 var gBoard
 var gLevel = {
-    SIZE: 0,
-    MINES: 0,
+    SIZE: 4,
+    MINES: 2,
 }
 var gGame = {
     isOn:false,
@@ -16,8 +16,11 @@ var gGame = {
     secsPassed:0
 }
 
+
 function init(){
     gGame.isOn = true
+    gBoard = buildBoard()
+    renderBoard(gBoard, '.board-container')
 }
 
 //Choosing the game level
@@ -39,9 +42,14 @@ function onLevel(size, numOfMines){
     gBoard = buildBoard()
     renderBoard(gBoard, '.board-container')
  
-    
+     var elBtn = document.querySelector('.victory')
+    elBtn.innerText = EMPTY
+
     var elsmily = document.querySelector('.smily')
     elsmily.innerText = '😃'
+
+    var elBtn = document.querySelector('.victory')   
+    elBtn.style.visibility = 'hidden';
 }
 
 //building board - MODEL
@@ -227,9 +235,13 @@ function isVictory(){
         }
         var elsmily = document.querySelector('.smily')
         elsmily.innerText = '😎'
-}
+
+        var elBtn = document.querySelector('.victory')   
+        elBtn.style.visibility = 'visible';
+    }
 
 function onClickSmily(){
+    gGame.secsPassed = 0
     onLevel(gLevel.SIZE, gLevel.MINES)  
 }
 

@@ -3,7 +3,7 @@
 //building board - DOM
 function renderBoard(mat, selector) {
 
-    var strHTML = '<table><tbody>'
+    var strHTML = '<table style="align-items: center;"><tbody>'
     for (var i = 0; i < mat.length; i++) {
 
         strHTML += '<tr>'
@@ -57,7 +57,8 @@ function findEmptyCell(){
 
 //render Cell - DOM
 function renderCell(location, value) {
-    
+    if(value === 0) value = EMPTY
+
     const elCell = document.querySelector(`.cell-${location.i}-${location.j}`)
     elCell.innerHTML = value
 
