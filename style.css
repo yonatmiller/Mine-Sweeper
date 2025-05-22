@@ -1,11 +1,21 @@
 body {
-    background-color: rgba(80, 69, 69, 0.038);
+    background-color: rgba(61, 55, 55, 0.038);
 	text-align: center;
 	color: lightgray;
     
 }
-
-
+.hidden{
+	border: 3px solid lightgray;;
+	visibility: hidden;
+}
+button{
+	border-radius: 30px;
+	transition: 5sx;
+	margin: 2px;
+}
+.safe-click{
+	background-color: rgb(38, 152, 222);
+}
 .cell {
 	text-align: center;
 	border: 3px solid lightgray;
@@ -13,7 +23,33 @@ body {
 	height: 15px;
 	font-size: 1em;
 	block-size: 15px;
+	background-color: rgb(189, 181, 181);
+
 }
+
+.stylecell{
+	text-align: center;
+	border: 3px solid lightgray;
+	width: 15px;
+	height: 15px;
+	font-size: 1em;
+	block-size: 15px;
+	background-color: rgb(63, 55, 55)
+}
+.stylemine{
+	text-align: center;
+	border: 3px solid lightgray;
+	width: 15px;
+	height: 15px;
+	font-size: 1em;
+	block-size: 15px;
+	background-color: rgb(217, 19, 19)
+}
+
+.board-container{
+	  border-collapse: collapse;
+}
+
 
 
 
